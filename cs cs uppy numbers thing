@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication12
+{
+    class Program
+    {
+        public static Boolean isup(int x)
+        {
+            int fn, sn;
+            while (x >0)
+            {
+                fn = x % 10;
+                x =x/ 10;
+                sn = x % 10;
+                if (fn < sn)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        static void Main(string[] args)
+        {
+            int num = 400,count=0;
+            while (num != 4000001)
+            {
+               if (isup(num))
+                {
+                    count++; 
+                }
+                num++;
+             
+            }
+            Console.WriteLine(count);
+        }
+
+    }
+}

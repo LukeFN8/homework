@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication12
+{
+    class Program
+    {
+        public static Boolean similar(int x,int y)
+        {
+            int sim = 0;
+            while (x > 0 && y>0)
+            {
+                //for start
+                for(int i=1; i < 10; i++)
+                {
+                    sim++;
+                    if(x%10!=sim && y % 10 == sim)
+                    {
+                        return false;
+                    }
+                    else if(x % 10 == sim && y % 10 != sim)
+                    {
+                        return false;
+                    }
+                }//for end
+                sim = 0;
+                x = x / 10;
+                y = y / 10;
+            }//while end
+            return true;
+
+            
+        }
+
+        static void Main(string[] args)
+        {
+            int fn=int.Parse(Console.ReadLine()), sn=int.Parse(Console.ReadLine());
+            int suc = 0, tot = 0,per;
+            while (fn != 0)
+            {
+                if (similar(fn, sn))
+                {
+                    suc++;
+                }
+                tot++;
+                fn = int.Parse(Console.ReadLine());
+                sn = int.Parse(Console.ReadLine());
+            }
+            per = (suc / tot) * 100;
+        }
+
+    }
+}
